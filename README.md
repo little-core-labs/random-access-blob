@@ -25,12 +25,23 @@ storage.read(0, 4, (err, buf) => {
 
 ### `storage = require('random-access-blob')(blob[, options])`
 
-Create a `RandomAccessBlob` instance from a `blob` that is "readable"
+Create a `RandomAccessBlob` instance from a [`blob`][blob] that is "readable"
 and "statable". `options` can be:
 
 ```js
 {
   offset: 0, // An optional offset to start reading from in the Blob
+}
+```
+
+### `storage = require('random-access-blob/file')(file[, options])`
+
+Create a `RandomAccessBlobFile` instance from a [`file`][file] that is
+"readable" and "statable".
+
+```js
+{
+  offset: 0, // An optional offset to start reading from in the File
 }
 ```
 
@@ -41,6 +52,7 @@ Read a buffer from the storage.
 #### `storage.stat(callback)`
 
 Stat the storage to get the blob size.
+
 
 ## License
 

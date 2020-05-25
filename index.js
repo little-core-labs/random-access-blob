@@ -4,7 +4,7 @@ const RandomAccessStorage = require('random-access-storage')
 /**
  * An `Error` thrown when an expected `Blob` instance is not
  * found on the `RandomAccessBlob` instance.
- * @private
+ * @protected
  */
 class BLOB_MISSING_ERR extends Error {
   get name() { return this.constructor.name }
@@ -15,7 +15,7 @@ class BLOB_MISSING_ERR extends Error {
 
 /**
  * A `RangeError` thrown when an offset is out of range.
- * @private
+ * @protected
  */
 class OFFSET_RANGE_ERR extends RangeError {
   get name() { return this.constructor.name }
@@ -111,6 +111,8 @@ class RandomAccessBlob extends RandomAccessStorage {
  * @param {Blob} blob
  * @param {?(Object)} opts
  * @return {RandomAccessBlob}
+ * @throws RangeError
+ * @throws Error
  */
 function createRandomAccessBlob(blob, opts) {
   return new RandomAccessBlob(blob, opts)
@@ -120,5 +122,7 @@ function createRandomAccessBlob(blob, opts) {
  * Module exports.
  */
 module.exports = Object.assign(createRandomAccessBlob, {
+  BLOB_MISSING_ERR,
+  OFFSET_RANGE_ERR,
   RandomAccessBlob
 })
