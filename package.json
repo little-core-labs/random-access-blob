@@ -1,0 +1,36 @@
+{
+  "name": "random-access-blob",
+  "version": "0.0.0",
+  "description": "A random access storage interface for Blob instances (like File).",
+  "main": "index.js",
+  "scripts": {
+    "example": "budo example.js --open --live --port 3000",
+    "test": "budo test.js --open --live --port 3000"
+  },
+  "keywords": [
+    "random",
+    "access",
+    "storage",
+    "blob",
+    "browser",
+    "file"
+  ],
+  "author": "Joseph Werle <werle@littlestar.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "batch": "^0.6.1",
+    "budo": "^11.6.3",
+    "tape": "^5.0.1"
+  },
+  "dependencies": {
+    "random-access-storage": "^1.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little-core-labs/random-access-blob.git"
+  },
+  "bugs": {
+    "url": "https://github.com/little-core-labs/random-access-blob/issues"
+  },
+  "homepage": "https://github.com/little-core-labs/random-access-blob#readme"
+}
