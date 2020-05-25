@@ -33,15 +33,21 @@ class RandomAccessBlobFile extends RandomAccessBlob {
    */
   _read(req) {
     const { offset = 0, blob } = this
-    const start = offset + req.offset
-    const end = start + req.size
 
     if (!blob) {
       req.callback(new BLOB_MISSING_ERR())
       return
     }
 
-    if (start + end < 0 || start < 0 || start > blob.size || end > blob.size) {
+    if (req.offset < 0 || req.size < 0) {
+      req.callback(new OFFSET_RANGE_ERR())
+      return
+    }
+
+    const start = Math.min(offset + req.offset, blob.size)
+    const end = Math.min(start + req.size, blob.size)
+
+    if (start + end < 0 || start < 0) {
       req.callback(new OFFSET_RANGE_ERR())
       return
     }

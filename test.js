@@ -68,15 +68,11 @@ test('RandomAccessBlob(blob[, opts]) - out of range', (t) => {
   const blob = new Blob([bytes])
   const storage = rab(blob)
 
-  storage.read(bytes.length, 1, (err) => {
+  storage.read(-1, 1, (err) => {
     t.ok(err)
-
-    storage.read(-1, 1, (err) => {
+    storage.read(0, -1, (err) => {
       t.ok(err)
-      storage.read(0, -1, (err) => {
-        t.ok(err)
-        t.end()
-      })
+      t.end()
     })
   })
 })
