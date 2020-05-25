@@ -1,6 +1,6 @@
 {
   "name": "random-access-blob",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A random access storage interface for Blob instances (like File).",
   "main": "index.js",
   "scripts": {
